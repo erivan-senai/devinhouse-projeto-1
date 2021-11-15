@@ -4,6 +4,9 @@ Este projeto tem como objetivo criar uma aplicação
 web de lista de afazeres (“to-do list”). Deverá conter os requisitos apresentados anteriormente, sendo codificada em html, css, javascript e markdown (para o readme.md).
 A imagem a seguir demonstra um exemplo do FrontEnd que deverá ser desenvolvido.
 
+![Captura de tela 2021-11-15 145546](https://user-images.githubusercontent.com/93286172/141834030-fe9f3126-2cfb-444f-a158-e8ab29c44f29.png)
+
+
 # Requisitos da Aplicação
 
 #### A aplicação que deverá ser realizada individualmente, deve contemplar os seguintes requisitos:

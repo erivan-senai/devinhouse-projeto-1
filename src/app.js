@@ -1,78 +1,74 @@
-var arrayLista = []
-
-var arrayTarefas = new Array();
+let arrayTarefas = localStorage.getItem('lista') ? JSON.parse(localStorage.getItem('lista')):[]
 
 
-
-//criacao de elementos
-function criarItem() {
-    
-    
+function addItem(){
     var input = document.getElementById('item');
     var valor = input.value;
+    var feito = false;
+    criarItem(valor,feito);
+    arrayTarefas.push({valor,feito});
+    localStorage.setItem('lista', JSON.stringify(arrayTarefas));
+    input.value = ''; 
+}
+//criacao de elementos
+function criarItem(valor, feito) {
     var item = document.createElement('li');
-    var checkbox = document.createElement('input');
-    checkbox.setAttribute('type', 'checkbox');
-
+    item.setAttribute('id', valor);
     var label = document.createElement('span');
-    var txt = document.createTextNode(input.value);
+    label.innerHTML = valor;
+
+    feito && ( label.classList.add('feito'));
+    var checkbox = document.createElement('input');
+    checkbox.checked = feito;
+    checkbox.setAttribute('type', 'checkbox');
+    checkbox.addEventListener('click', (e) => { 
+        if (e.target.checked){
+            label.classList.add('feito')
+            guardarFeito(item, true)
+        }else{
+            label.classList.remove('feito')
+            guardarFeito(item, false)
+        }
+    });
+
 
     var button = document.createElement('button');
-    var x = document.createTextNode('x');
-    
-    button.appendChild(x);
-    button.onclick = function() { excluirItem(this) };
+    button.innerHTML = 'x'
+    button.addEventListener('click', () => {
+       if(confirm("Tem certeza que quer apagar?")) {
+            deletarItem(item)
+       }
+    })
 
     var ul = document.getElementById('listas')
     item.appendChild(checkbox);
-    item.appendChild(document.createTextNode(input.value));
-    
-    ul.appendChild(item);
     item.appendChild(label);
     item.appendChild(button);
+    ul.appendChild(item);
+}
 
-   var list = document.getElementById('listas');
 
-   list.appendChild(item)
+function deletarItem(item) {
+    
+    arrayTarefas = arrayTarefas.filter(val => val.valor !== item.id);
+    localStorage.setItem('lista', JSON.stringify(arrayTarefas));
 
-   input.value = '';
+    item.remove();
+}
+
+arrayTarefas.forEach(element => {
+    console.log(element)
    
-}
+    criarItem(element.valor,element.feito);
+});
 
-function carregarLista(){
-    var storage = JSON.parse(localStorage.getItem('lista'));
-    arrayLista = storage;
-    for(var i=0; i<= arrayLista.length-1; i++){
-       createElementHTML(arrayLista[i]);
-    }
-}
-
-
-
-function exibirItem(){
-    var storage = JSON.parse(localStorage.getItem('lista'));
-    var idTarefa = arrayLista.length+1;
-    var idList =document.getElementById('item').value;
-
-    if (idList!=""){
-        arrayLista.push(idTarefa, idList);
-    }
-
-    createElementHTML(idTarefa, idList, false)
-}
-
-
-function deletarItem(elemento) {
-    var _local_storage = localStorage.getItem('item');
-    var objeto = JSON.parse(_local_storage);
-    arrayTarefas = objeto.item;
-
-    var novo = arrayTarefas.filter(valor => valor !== elemento.id);
-
-    objeto.item = novo;
-    _local_storage = JSON.stringify(objeto);
-    localStorage.setItem('item', _local_storage);
-
-    elemento.parentElement.remove();
+function guardarFeito(item, feito){
+    arrayTarefas = arrayTarefas.filter(val => {
+        if (val.valor === item.id){
+           val.feito = feito
+        }
+        return val
+        });
+    localStorage.setItem('lista', JSON.stringify(arrayTarefas));
 
 }

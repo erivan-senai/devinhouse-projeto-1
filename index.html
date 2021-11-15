@@ -7,16 +7,16 @@
     <link rel="shortcut icon" href="favicon.png" />
     <title>Projeto 1</title>
     <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="/src/app.js" ></script>
+    
 </head>
 
-<body onload={carregarLista()}>
+<body>
     <main>
         <h1> Lista de Afazeres</h1><br> 
         <div class="central">
             <div class="form">
                 <input type="text" id="item" placeholder="Digite uma tarefa...">
-                <button id="botao" onclick="criarItem()">Adicionar</button>
+                <button id="botao" onclick="addItem()">Adicionar</button>
             </div>
         </div>
 
@@ -26,5 +26,6 @@
             </ul>
         </div>
     </main>
+    <script type="text/javascript" src="/src/app.js" ></script>
 </body>
 </html>

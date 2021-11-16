@@ -1,13 +1,13 @@
-let arrayTarefas = localStorage.getItem('lista') ? JSON.parse(localStorage.getItem('lista')):[]
+let arrayTarefas = localStorage.getItem('lista') ? JSON.parse(localStorage.getItem('lista')) : []
 
-function addItem(){
+function addItem() {
     var input = document.getElementById('item');
     var valor = input.value;
     var feito = false;
-    criarItem(valor,feito);
-    arrayTarefas.push({valor,feito});
+    criarItem(valor, feito);
+    arrayTarefas.push({ valor, feito });
     localStorage.setItem('lista', JSON.stringify(arrayTarefas));
-    input.value = ''; 
+    input.value = '';
 }
 //criacao de elementos
 function criarItem(valor, feito) {
@@ -16,15 +16,15 @@ function criarItem(valor, feito) {
     var label = document.createElement('span');
     label.innerHTML = valor;
 
-    feito && ( label.classList.add('feito'));
+    feito && (label.classList.add('feito'));
     var checkbox = document.createElement('input');
     checkbox.checked = feito;
     checkbox.setAttribute('type', 'checkbox');
-    checkbox.addEventListener('click', (e) => { 
-        if (e.target.checked){
+    checkbox.addEventListener('click', (e) => {
+        if (e.target.checked) {
             label.classList.add('feito')
             guardarFeito(item, true)
-        }else{
+        } else {
             label.classList.remove('feito')
             guardarFeito(item, false)
         }
@@ -33,9 +33,9 @@ function criarItem(valor, feito) {
     var button = document.createElement('button');
     button.innerHTML = 'x'
     button.addEventListener('click', () => {
-       if(confirm("Tem certeza que quer apagar?")) {
+        if (confirm("Tem certeza que quer apagar?")) {
             deletarItem(item)
-       }
+        }
     })
 
     var ul = document.getElementById('listas')
@@ -45,9 +45,7 @@ function criarItem(valor, feito) {
     ul.appendChild(item);
 }
 
-
 function deletarItem(item) {
-    
     arrayTarefas = arrayTarefas.filter(val => val.valor !== item.id);
     localStorage.setItem('lista', JSON.stringify(arrayTarefas));
 
@@ -56,16 +54,15 @@ function deletarItem(item) {
 
 arrayTarefas.forEach(element => {
     console.log(element)
-   
-    criarItem(element.valor,element.feito);
+    criarItem(element.valor, element.feito);
 });
 
-function guardarFeito(item, feito){
+function guardarFeito(item, feito) {
     arrayTarefas = arrayTarefas.filter(val => {
-        if (val.valor === item.id){
-           val.feito = feito
+        if (val.valor === item.id) {
+            val.feito = feito
         }
         return val
-        });
+    });
     localStorage.setItem('lista', JSON.stringify(arrayTarefas));
 }

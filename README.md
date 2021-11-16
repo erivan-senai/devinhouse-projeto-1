@@ -27,6 +27,6 @@ A imagem a seguir demonstra um exemplo do FrontEnd que deverá ser desenvolvido.
 ● CSS: estilizar a página, os botões, inputs, alterar atributos dos elementos da tela de acordo com a interação do usuário para uma melhor experiência do usuário (UX).
 ● Javascript: variáveis, arrays, funções, manipulação do DOM (eventos, elementos e seus atributos), manipular objetos (JSON), utilizar o localStorage.
 
-## Projeto Finalizado !
+# Projeto Finalizado !
 
-exemplo: imagem do projeto
+![Captura](https://user-images.githubusercontent.com/93286172/141872982-48d79c32-51a2-45bd-ba26-ae31930bf953.png)

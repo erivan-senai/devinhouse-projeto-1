@@ -5,17 +5,90 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.central {
+    margin-top: 30px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 30px;
+    max-width: 400px;
+    background: rgba(111, 0, 255, 0.589);
+    border-radius: 5px;
+    padding: 25px;  
+}
+
+.central .form {
+    display: flex;
+    height: 30px;
+    width: 100%;
+}
+
+.form input  {
+    height: 100%;
+    width: 85%;
+    border: 1px solid black;
+    border-radius: 5px;  
+    font-size: 15px; /*tamanho fonte do placeholder*/
+    margin-right: 5px;
+}
+
+.central button {
+    width: 30% ;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-left: 5px;
+}
 
 body {
-    background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-    text-align: center;
+    height: 100vh;
+    width: 100%;
+    padding-top: 60px;
 }
 
+
+
+
+ul > li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 12px;
+    margin-bottom: 2mm;
+    background: rgba(111, 0, 255, 0.589);
+    margin-right: 30%;
+    margin-left: 30%;
+    border-radius: 5px;
+    list-style: none;
+    height: 40px;
+  
+ 
+}
 ul {
     list-style-type: none;
-}
-.feito{
-    text-decoration: line-through;
+    
 }
 
+.feito{
+    text-decoration: line-through;
+    
+}
+input[type=checkbox] {
+    transform: scale(1.5);
+    margin-right: 10px;
+    flex: 0; 
+   
+}
+
+li > button {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    
+}
+
+span {
+    flex: 1;
+
+}

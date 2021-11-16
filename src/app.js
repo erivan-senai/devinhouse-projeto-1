@@ -1,6 +1,5 @@
 let arrayTarefas = localStorage.getItem('lista') ? JSON.parse(localStorage.getItem('lista')):[]
 
-
 function addItem(){
     var input = document.getElementById('item');
     var valor = input.value;
@@ -30,7 +29,6 @@ function criarItem(valor, feito) {
             guardarFeito(item, false)
         }
     });
-
 
     var button = document.createElement('button');
     button.innerHTML = 'x'
@@ -70,5 +68,4 @@ function guardarFeito(item, feito){
         return val
         });
     localStorage.setItem('lista', JSON.stringify(arrayTarefas));
-
 }

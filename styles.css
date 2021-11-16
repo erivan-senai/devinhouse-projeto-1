@@ -47,9 +47,6 @@ body {
     padding-top: 60px;
 }
 
-
-
-
 ul > li {
     display: flex;
     flex-direction: row;
@@ -62,12 +59,9 @@ ul > li {
     border-radius: 5px;
     list-style: none;
     height: 40px;
-  
- 
 }
 ul {
     list-style-type: none;
-    
 }
 
 .feito{
@@ -78,17 +72,14 @@ input[type=checkbox] {
     transform: scale(1.5);
     margin-right: 10px;
     flex: 0; 
-   
 }
 
 li > button {
     width: 40px;
     height: 40px;
     border-radius: 5px;
-    
 }
 
 span {
     flex: 1;
-
 }
